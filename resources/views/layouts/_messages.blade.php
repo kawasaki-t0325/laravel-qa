@@ -1,4 +1,3 @@
-<p>test</p>
 <p>{{ session('success') }}</p>
 @if (session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
