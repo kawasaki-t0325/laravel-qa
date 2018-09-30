@@ -42,6 +42,7 @@
                                 @csrf
                                 <input type="hidden" name="vote" value="-1">
                             </form>
+                            
                             <a 
                                 title="Click to mark as favorite question (Click again to undo)" 
                                 class="favorite mt-2 {{ Auth::guest() ? 'off' : ($question->is_favorited ? 'favorited' : '') }}"
