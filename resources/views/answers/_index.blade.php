@@ -32,38 +32,7 @@
                                 @csrf
                                 <input type="hidden" name="vote" value="-1">
                             </form>
-                            @auth
-                                @can ('accept', $answer)
-                                    <a 
-                                        title="Mark this answer as best answer" 
-                                        class="{{ $answer->status }} mt-2"
-                                        onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit()"
-                                    >
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </a>
-                                    <form action="{{ route('answers.accept', $answer->id) }}" id="accept-answer-{{ $answer->id }}" method="POST" style="display:none;">
-                                        @csrf
-                                    </form>
-                                @else
-                                    @if ($answer->is_best)
-                                        <a 
-                                            title="Mark this answer as best answer" 
-                                            class="{{ $answer->status }} mt-2"
-                                        >
-                                            <i class="fas fa-check fa-2x"></i>
-                                        </a>
-                                    @endif
-                                @endcan
-                            @else
-                                @if ($answer->is_best)
-                                    <a 
-                                        title="Mark this answer as best answer" 
-                                        class="{{ $answer->status }} mt-2"
-                                    >
-                                        <i class="fas fa-check fa-2x"></i>
-                                    </a>
-                                @endif
-                            @endauth
+
                         </div>
                         <div class="media-body">
                             {!! $answer->body_html !!}
