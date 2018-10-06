@@ -1,3 +1,4 @@
+
 <span class="text-muted">{{ $label . " " . $model->created_date }}</span>
 <div class="media mt-2">
     <a href="{{ $model->user->url }}" class="pr-2">
