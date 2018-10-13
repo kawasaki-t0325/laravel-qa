@@ -14,9 +14,8 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="ml-auto">
-                                    <a v-if="authorize('modify', answer)" @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
-                                    <button v-if="authorize('modify', answer)" @click="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
-
+                            <a v-if="authorize('modify', answer)" @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
+                            <button v-if="authorize('modify', answer)" @click="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
                         </div>
                     </div>
                     <div class="col-4"></div>
@@ -84,9 +83,7 @@ export default {
                         
                         axios.delete(this.endpoint)
                         .then(res => {
-                            $(this.$el).fadeOut(500, () => {
-                                this.$toast.success(res.data.message, "Success", { timeout: 3000 });
-                            });
+                            this.$emit('deleted')
                         })
             
                         instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
